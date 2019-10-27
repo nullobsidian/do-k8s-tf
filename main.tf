@@ -1,5 +1,5 @@
 variable "cluster_name" {}
-variable "envrionment" {}
+variable "environment" {}
 variable "dns_zone" {}
 variable "k8s_region" {}
 variable "node_pool_name" {}
@@ -11,7 +11,7 @@ resource "digitalocean_kubernetes_cluster" "main" {
   region  = "${var.k8s_region}"
   // Grab the latest version slug from `doctl kubernetes options versions`
   version = "1.15.5-do.0"
-  tags    = ["${var.envrionment}","${var.dns_zone}"]
+  tags    = ["${var.environment}","${var.dns_zone}"]
 
   node_pool {
     name       = "${var.node_pool_name}"
