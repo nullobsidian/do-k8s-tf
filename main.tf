@@ -5,6 +5,11 @@ variable "k8s_region" {}
 variable "node_pool_name" {}
 variable "node_size" {}
 variable "node_count" {}
+variable "do_token" {}
+
+provider "digitalocean" {
+  token = "${var.do_token}"
+}
 
 resource "digitalocean_kubernetes_cluster" "main" {
   name    = "${var.cluster_name}"
