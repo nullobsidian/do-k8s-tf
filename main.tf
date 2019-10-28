@@ -17,7 +17,7 @@ resource "digitalocean_kubernetes_cluster" "main" {
   region  = "${var.k8s_region}"
   // Grab the latest version slug from `doctl kubernetes options versions`
   version = "${var.k8s_version}"
-  tags    = ["${var.environment}","${var.dns_zone}"]
+  tags    = ["${var.cluster_name}"]
 
   node_pool {
     name       = "${var.node_pool_name}"
